@@ -1,0 +1,220 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <!--IE Compatibility modes-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Mobile first-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/adminskin/dist/assets/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/adminskin/dist/assets/lib/components-font-awesome/css/font-awesome.min.css">
+    <!-- Metis core stylesheet -->
+    <link rel="stylesheet" href="/adminskin/dist/assets/css/main.min.css">
+    <script src="/adminskin/dist/assets/lib/jquery/dist/jquery.min.js"></script>
+    <style type="text/css">
+      body{
+        font-family: "Microsoft YaHei";
+      }
+      body.boxed {
+        background: url("/adminskin/dist/assets/img/pattern/arches.png") repeat;
+      }
+      #top > .navbar {
+        border-top: 3px solid #333333;
+      }
+      #top > .navbar .dropdown-menu > li > a:hover,
+      #top > .navbar .dropdown-menu > li > a:focus {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      #menu {
+        background-color: #333333 !important;
+      }
+      #menu > li > a {
+        color: #ffffff;
+        text-shadow: none !important;
+      }
+      .sidebar-left-mini #menu > li > a > .link-title {
+        background-color: #292929 !important;
+      }
+	  .table-center{
+		table-layout: fixed;
+	  }
+	  .table-center td{
+	      white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+	  }
+      .table-center th{
+        text-align: center;
+      }
+      .table-center{
+        text-align: center;
+      }
+      .list-group ul li.selected{
+        background-color: #72BDEC;
+      }
+      .list-group ul li:hover {
+        cursor: pointer;
+        /*background-color: #f9f9f9;*/
+      }
+      .wg_ui_loading {
+        position: fixed;
+        height: 100%;
+        top: 0px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+      }
+      .wg_ui_loading .wx_loading2{
+        position: relative;
+        text-align: center;
+        padding: 5px;
+        height: 32px;
+        top: 50%;
+      }
+      .wg_ui_loading .wx_loading_icon {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        margin-left: -16px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #fff;
+        border-radius: 24px;
+        -webkit-animation: gif 1s infinite linear;
+        animation: gif 1s infinite linear;
+        clip: rect(0 auto 12px 0)
+      }
+
+      @keyframes gif {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @-webkit-keyframes gif {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      .table-hover>tbody>tr:hover{
+        background-color:rgba(51,122,183,0.3);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-dark dk" id="wrap" style="position: absolute;width: 100%;min-height: 100%;">
+      <div id="top">
+        <!-- .navbar -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container-fluid">
+<div class="row">
+            <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="col-xs-2">
+            <header class="navbar-header span2" style="overflow:hidden">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+                <span class="icon-bar"></span> 
+              </button>
+              <a href="/" class="navbar-brand" style="line-height: 50px;padding-left: 15px;">
+                PPMS - 运营内容管理平台
+              </a> 
+            </header>
+  </div>
+  <div class="col-xs-8" style="line-height: 50px;padding: 0 15px 0 15px;height:50px;overflow:auto;font-size:15px;">
+        <marquee direction=left onmouseover=this.stop() onmouseout=this.start() id=ppmsNotice> </marquee>
+    <script>
+      $.getScript("http://wqs.jd.com//sinclude/update/wx/2016/3/ppmsNotice.shtml",function(){
+        if(typeof ppmsNotice!="undefined"&&ppmsNotice){
+          $("#ppmsNotice").html(ppmsNotice);
+        }
+      });
+    </script>
+ </div>
+      <div class="col-xs-2">
+            <div class="topnav span1">
+              <div class="btn-group">
+                <a data-placement="bottom" data-original-title="Fullscreen" data-toggle="tooltip" class="btn btn-default btn-sm" id="toggleFullScreen">
+                  <i class="glyphicon glyphicon-fullscreen"></i>
+                </a> 
+              </div>
+
+              <div class="btn-group">
+                <a href="javascript:void(0)" id="logoutBtn" data-toggle="tooltip" data-original-title="登出" data-placement="bottom" class="btn btn-metis-1 btn-sm">
+                  <i class="fa fa-power-off"></i>
+                </a> 
+              </div>
+              <div class="btn-group">
+                <a data-placement="bottom" data-original-title="显示 / 隐藏 左边" data-toggle="tooltip" class="btn btn-primary btn-sm toggle-left" id="menu-toggle">
+                  <i class="fa fa-bars"></i>
+                </a> 
+                <!--a data-placement="bottom" data-original-title="浏览历史记录" data-toggle="tooltip" class="btn btn-default btn-sm toggle-right"> <span class="glyphicon glyphicon-comment"></span>  </a-->
+              </div>
+            </div>
+        </div>
+  </>
+          </div><!-- /.container-fluid -->
+        </nav><!-- /.navbar -->
+      </div><!-- /#top -->
+      <div id="left" class="bg-dark dker" style="margin-bottom: 60px;">
+        <div class="media user-media bg-dark dker">
+          <div class="user-media-toggleHover">
+            <span class="fa fa-user"></span> 
+          </div>
+          <div class="user-wrapper bg-dark">
+            <a class="user-link" href="">
+              <!-- <img class="media-object img-thumbnail user-img" alt="User Picture" src="adminskin/dist/assets/img/user.gif"> -->
+              <img class="media-object user-img" alt="User Picture" src="http://img11.360buyimg.com/jdphoto/s80x80_jfs/t2218/355/1902931230/15043/e6144c28/567b7460Nf3454948.jpg" style="width: 75px;">
+              <span class="label label-danger user-label"></span>
+            </a> 
+            <div class="media-body">
+              <h5 class="media-heading"></h5>
+              <ul class="list-unstyled user-info">
+                <li> 权限是：<a href="">管理员</a>  </li>
+                <li>最近使用时间 :
+                  <br>
+                  <small id="ppmsUseTime">
+                    <i class="fa fa-calendar"></i>&nbsp;5月16日 16:32</small> 
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script>
+            //最近使用时间
+            var useTime = window.localStorage.getItem("ppmsUseTime") || new Date().getTime();
+            useTime = new Date(parseInt(useTime, 10));
+            document.getElementById("ppmsUseTime").innerHTML = '<i class="fa fa-calendar"></i>&nbsp;'+(useTime.getMonth()+1)+'月'+useTime.getDate()+'日 '+useTime.getHours()+':'+useTime.getMinutes();
+            window.localStorage.setItem("ppmsUseTime", new Date().getTime());
+        </script>
+        <!-- #menu -->
+        <ul id="menu" class="bg-blue dker">
+          <li class="nav-divider"></li>
+          <li class="nav-header">页面片管理</li>
+        </ul><!-- /#menu -->
+      </div><!-- /#left -->
+      <div id="content" style="margin-bottom: 50px;">
+        <header class="head">
+          <div class="main-bar">
+            <h4 style="margin-top:0;margin-bottom: 0;">
+              <i class="glyphicon glyphicon-folder-open"></i>&nbsp; <%=title%></h4>
+          </div><!-- /.main-bar -->
+        </header><!-- /.head -->
+        <div class="outer" style="padding:0">
+          <div class="inner bg-light lter" id="inner_content" style="border: none;">

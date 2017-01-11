@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>PPMS - 运营内容管理平台</title>
+<% include header.html %>
+</head>
+<body>
+<div class="container">
+  <div class="page-header">
+    <h3>PPMS - 运营内容管理平台 <small>content manage platform</small></h3>
+  </div>
+ <div class="row">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#">推荐位</a></li>
+		<li><a href="#">page系统</a></li>
+		<li><a href="#">页面管理</a></li>
+		<li><a href="#">页面片管理</a></li>
+		<li class="active"><a href="#">创建页面片</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">工具 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">图片上传</a></li>
+            <li><a href="#">图片切割</a></li>
+            <li><a href="#">快速发布</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+ </nav> 
+ </div>
+ <div class="row">
+  <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">页面片名称</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="xxx.html">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">页面片描述</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="描述">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">页面片类型</label>
+    <select class="form-control">
+		<option>html</option>
+		<option>js</option>
+		<option>css</option>
+	</select>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">过期时间</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="几天后过期">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">数据模板</label>
+    <select class="form-control">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+	</select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> 自定义数据模板
+    </label>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" rows="10"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">所属页面</label>
+    <select class="form-control">
+		<option>新建</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+	</select>
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputFile">页面片模板</label>
+    <textarea class="form-control" rows="10"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-default">创 建</button>
+</form>
+</div>
+<div class="row" style="height:30px;"></div>
+</div>
+<% include foot.html %>
+</body>
+</html>

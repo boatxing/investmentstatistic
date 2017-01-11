@@ -1,0 +1,48 @@
+{
+  "levels":{"[all]":"INFO"},
+  "appenders": [
+    {
+      "type": "clustered",
+      "appenders": [
+        {
+          "type": "dateFile",
+          "filename":"log/",
+          "pattern": "app-yyyy-MM-dd.log",
+          "alwaysIncludePattern":true
+        },
+        {
+          "type": "logLevelFilter",
+          "level": "DEBUG",
+          "appender": {
+            "type": "file",
+            "filename": "log/debug.log",
+            "maxLogSize": 51200000,
+            "backups": 1
+          }
+        },
+        {
+          "type": "logLevelFilter",
+          "level": "WARN",
+          "appender": {
+            "type": "file",
+            "filename": "log/warn.log",
+            "maxLogSize": 51200000,
+            "backups": 1
+          }
+        },
+        {
+          "type": "logLevelFilter",
+          "level": "ERROR",
+          "appender": {
+            "type": "dateFile",
+            "filename": "log/",
+            "pattern": "error-yyyy-MM-dd.log",
+            "alwaysIncludePattern":true,
+            "maxLogSize": 51200000,
+            "backups": 20
+          }
+        }
+      ]
+    }
+  ]
+}

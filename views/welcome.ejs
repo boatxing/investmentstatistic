@@ -1,0 +1,17 @@
+<% include header.html %>
+<div class="row" id="content_row" style="background: #ececec url(images/welcomebg.png) 100% 100% no-repeat;padding-top:50px;padding-left:30px;margin-right: -10px;margin-left: -10px;">
+  <div class="col-lg-6">
+    <div class="box" style="border: 1px solid #ddd;">
+     <header>
+      <h5><span class="label label-success"><%=username%></span>，欢迎您登陆PPMS-运营内容管理平台！</h5>
+     </header>
+     <div class="body">你现在的权限是：<span class="label label-info"><%=userrole == 2 ? '管理员' : userrole == 1 ? '[微信手Q]开发]' : '[微信手Q]运营]'%></span></div>
+    </div>
+  </div>
+</div>
+<% include foot.html %>
+  <script type="text/javascript">
+    $("#content_row").css("height",($("#wrap").height() - 146) + "px");
+  </script>
+  </body>
+</html>
