@@ -101,8 +101,30 @@ function operate(list){
 	//质押式
 	for(var i of list){
 		console.log(i.name);
+		if(i == "质押式数据导入表"){
+			logger.info("质押式数据表合并");
+			for(var j of i){
+				merge(j, i);
+			}
+
+			logger.info("质押式数据表合并完毕", i.length);
+			return true;
+		}
 	}
 	return "";
+}
+
+function merge(item, list){
+	var item1 = null;
+	for(var i = list.length - 1; i >= 0; i--){
+		item1 = list[i];
+		if(item1[4] == item[4] && item1[7] == item[7] && item1[14] == item[14]){
+			logger.info("找到相同的行", i);
+			item[13] += item1[13];
+
+			list.splice(index, 1);
+		}
+	}
 }
 
 module.exports = router;

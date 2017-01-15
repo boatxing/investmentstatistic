@@ -133,19 +133,12 @@
                 <span class="icon-bar"></span> 
               </button>
               <a href="/" class="navbar-brand" style="line-height: 50px;padding-left: 15px;">
-                PPMS - 运营内容管理平台
+                INS - 投资管理平台
               </a> 
             </header>
   </div>
   <div class="col-xs-8" style="line-height: 50px;padding: 0 15px 0 15px;height:50px;overflow:auto;font-size:15px;">
-        <marquee direction=left onmouseover=this.stop() onmouseout=this.start() id=ppmsNotice> </marquee>
-    <script>
-      $.getScript("http://wqs.jd.com//sinclude/update/wx/2016/3/ppmsNotice.shtml",function(){
-        if(typeof ppmsNotice!="undefined"&&ppmsNotice){
-          $("#ppmsNotice").html(ppmsNotice);
-        }
-      });
-    </script>
+        <marquee direction=left onmouseover=this.stop() onmouseout=this.start()> </marquee>
  </div>
       <div class="col-xs-2">
             <div class="topnav span1">
@@ -189,7 +182,7 @@
                 <li> 权限是：<a href="">管理员</a>  </li>
                 <li>最近使用时间 :
                   <br>
-                  <small id="ppmsUseTime">
+                  <small id="insUseTime">
                     <i class="fa fa-calendar"></i>&nbsp;5月16日 16:32</small> 
                 </li>
               </ul>
@@ -198,15 +191,15 @@
         </div>
         <script>
             //最近使用时间
-            var useTime = window.localStorage.getItem("ppmsUseTime") || new Date().getTime();
+            var useTime = window.localStorage.getItem("insUseTime") || new Date().getTime();
             useTime = new Date(parseInt(useTime, 10));
-            document.getElementById("ppmsUseTime").innerHTML = '<i class="fa fa-calendar"></i>&nbsp;'+(useTime.getMonth()+1)+'月'+useTime.getDate()+'日 '+useTime.getHours()+':'+useTime.getMinutes();
-            window.localStorage.setItem("ppmsUseTime", new Date().getTime());
+            document.getElementById("insUseTime").innerHTML = '<i class="fa fa-calendar"></i>&nbsp;'+(useTime.getMonth()+1)+'月'+useTime.getDate()+'日 '+useTime.getHours()+':'+useTime.getMinutes();
+            window.localStorage.setItem("insUseTime", new Date().getTime());
         </script>
         <!-- #menu -->
         <ul id="menu" class="bg-blue dker">
           <li class="nav-divider"></li>
-          <li class="nav-header">页面片管理</li>
+          <li class="nav-header">资料上传</li>
         </ul><!-- /#menu -->
       </div><!-- /#left -->
       <div id="content" style="margin-bottom: 50px;">
