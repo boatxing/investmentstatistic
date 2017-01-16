@@ -1,9 +1,9 @@
 {
-  "name": "ppmsv1",
-  "version": "0.0.0",
+  "name": "insv1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/ppms_start"
+    "start": "node ./bin/ins_start"
   },
   "dependencies": {
     "async": "1.5.0",

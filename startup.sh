@@ -1,6 +1,6 @@
 #! /bin/bash
-echo 'stop ppmsv1:'
-forever stop ppmsv1
-echo 'start ppmsv1:'
+echo 'stop insv1:'
+forever stop insv1
+echo 'start insv1:'
 forever start ./forever/start.json
 

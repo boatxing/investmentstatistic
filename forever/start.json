@@ -1,0 +1,7 @@
+{
+    "uid": "insv1",
+    "append": true,
+    "watch": true,
+    "script": "ins_start",
+    "sourceDir": "/home/boat/ins/bin"
+}
