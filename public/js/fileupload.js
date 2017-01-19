@@ -15,7 +15,10 @@ define('fileupload', function (require, exports, module) {
      * */
     function bindEvent(){
         $("#uploadBtn").on("click",function(){
-            $("#returnMes").text("");
+            $("#uploadBtn").prop("disabled",true);
+            setTimeout(function(){
+                $("#file").val("");
+            }, 1000);
         });
         $("#file").on("change",function(e){
             if($(this).val()){

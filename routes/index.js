@@ -88,41 +88,61 @@ router.post('/excelImport', function(req, res, next){
 				'Content-Type': 'application/vnd.openxmlformats;charset=utf8',
 				"Content-Disposition": "attachment; filename=xxx.xlsx"
 			})
-			res.send(operate(list));
+
+			var data = operate(list)
+			var buffer = xlsx.build([{name: decodeURIComponent("result"), data: data}]);
+			res.send(buffer);
 		});
 	});
 });
 
 function operate(list){
 	console.log("operate");
-	//买断式数据导入表
-
 	//债券评级表
+	var comments = null;
 	//质押式
+	var results = null;
+	//质押式数据导入表
+	var zhiyashiList = null;
+	var item = null;
 	for(var i of list){
 		console.log(i.name);
-		if(i == "质押式数据导入表"){
-			logger.info("质押式数据表合并");
-			for(var j of i){
-				merge(j, i);
-			}
+		item = i.data;
+		if(i.name == "质押式数据导入表"){
+			zhiyashiList = item;
+			//return true;
+		}
 
-			logger.info("质押式数据表合并完毕", i.length);
-			return true;
+		if(i.name == "债券评级表"){
+			comments = item;
+		}
+
+		if(i.name == "质押式"){
+			results = item;
 		}
 	}
-	return "";
+
+	logger.info("质押式数据表合并", zhiyashiList.length);
+	zhiyashiList.forEach(function(item, index){
+		logger.info("======", index);
+		merge(item, zhiyashiList, index);
+	})
+
+	logger.info("质押式数据表合并完毕", zhiyashiList.length);
+
+	return zhiyashiList;
 }
 
-function merge(item, list){
+function merge(item, list, index){
 	var item1 = null;
-	for(var i = list.length - 1; i >= 0; i--){
+	for(var i = list.length - 1; i > 0; i--){
+		if( i == index)continue;
 		item1 = list[i];
-		if(item1[4] == item[4] && item1[7] == item[7] && item1[14] == item[14]){
+		if(item1[33] === item[33] && item1[7] === item[7] && item1[14] === item[14]){
 			logger.info("找到相同的行", i);
-			item[13] += item1[13];
-
-			list.splice(index, 1);
+			item[13] += parseFloat(item1[13], 10);
+			item[15] += parseFloat(item1[15], 10);
+			list.splice(i, 1);
 		}
 	}
 }
